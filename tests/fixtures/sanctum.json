@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "logMessages": [
+      "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+      "Program ComputeBudget111111111111111111111111111111 success",
+      "Program stkitrT1Uoy18Dk1fTrgPw8W6MVzoCfYoAFT4MLsmhq invoke [1]",
+      "Program log: Instruction: SwapViaStake",
+      "Program Stake11111111111111111111111111111111111111 invoke [2]",
+      "Program Stake11111111111111111111111111111111111111 success",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+      "Program log: Instruction: Transfer",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+      "Program stkitrT1Uoy18Dk1fTrgPw8W6MVzoCfYoAFT4MLsmhq consumed 102345 of 400000 compute units",
+      "Program stkitrT1Uoy18Dk1fTrgPw8W6MVzoCfYoAFT4MLsmhq success"
+    ],
+    "innerInstructions": [],
+    "err": null,
+    "fee": 5000
+  },
+  "transaction": {
+    "message": {
+      "instructions": [
+        {
+          "accounts": [],
+          "data": "3oR4xS4NQ5T5",
+          "programId": "ComputeBudget111111111111111111111111111111",
+          "stackHeight": 1
+        },
+        {
+          "accounts": [
+            "7dHbWXmci3dT8UFYWYZweBLXgycu7Y3iL6trKn1Y7ARj",
+            "mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So"
+          ],
+          "data": "AbcDeFgHiJkL",
+          "programId": "stkitrT1Uoy18Dk1fTrgPw8W6MVzoCfYoAFT4MLsmhq",
+          "stackHeight": 1
+        }
+      ]
+    }
+  },
+  "blockTime": 1773714600,
+  "slot": 406921600
+}

@@ -66,6 +66,22 @@ PROGRAMS: dict[str, tuple[str, str]] = {
     "So1endDq2YkqhipRh3WViPa8hFMo56cMYwLBYtyHWmD": ("Solend/Save", "lending"),
     "KLend2g3cP87ber8PCj7bvw9RpAhE3z2DRjwMKVpMjJ": ("Kamino Lending", "lending"),
     "6LtLpnUFNByNXLyCoK9wA2MykKAmQNZKBdY8s47dehDc": ("Kamino Vaults", "lending"),
+    # DeFi — Drift
+    "dRiftyHA39MWEi3m9aunc5MzRF1JYuBsbn6VPcn33UH": ("Drift", "perps"),
+    # DeFi — Sanctum
+    "stkitrT1Uoy18Dk1fTrgPw8W6MVzoCfYoAFT4MLsmhq": ("Sanctum Router", "staking"),
+    "unpXTU2Ndrc7WWNyEhQWe4udTzSibLPi25SXv2xbCHQ": ("Sanctum Unstake", "staking"),
+    # DeFi — Jupiter DCA / Limit / Perps
+    "DCA265Vj8a9CEuX1eb1LWRnDT7uK6q1xMipnNyatn23M": ("Jupiter DCA", "dex"),
+    "jupoNjAxXgZ4rjzxzPMP4oxduvQsQtZzyknqvzYNrNu": ("Jupiter Limit Order", "dex"),
+    "PERPHjGBqRHArX4DySjwM6UJHiR3sWAatqfdBS2qQJu": ("Jupiter Perps", "perps"),
+    # DeFi — Phoenix
+    "PhoeNiXZ8ByJGLkxNfZRnkUfjvmuYqLR89jjFHGqdXY": ("Phoenix", "dex"),
+    # DeFi — Pump.fun
+    "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P": ("Pump.fun", "launchpad"),
+    "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA": ("Pump.fun AMM", "dex"),
+    # DeFi — Lifinity
+    "2wT8Yq49kHgDzXuPxZSaeLaH1qbmGXtEyPy64bL7aD3c": ("Lifinity V2", "dex"),
     # Oracles
     "FsJ3A3u2vn5cTVofAjvy6y5kwABJAqYWpe4975bi2epH": ("Pyth Oracle", "oracle"),
     "SW1TCH7qEPTdLsDHRgPuMQjbQxKdH2aBStViMFnt64f": ("Switchboard v2", "oracle"),

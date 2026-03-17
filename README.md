@@ -49,9 +49,14 @@ Protocol Details:
 | Decoder | Protocols | Output Type |
 |---------|-----------|-------------|
 | **Jupiter** | Jupiter v6, v4 | Swap route instruction (`Route`, `SharedAccountsRoute`, `ExactOutRoute`) |
+| **Jupiter Products** | DCA, Limit Order, Perps | DCA/limit/perps actions (`OpenDca`, `CreateOrder`, `OpenPosition`) |
 | **Raydium** | CLMM, AMM v4, Router, CPMM | Swap/liquidity instruction with program label |
 | **Meteora** | DLMM, Pools | Swap/liquidity instruction |
 | **Orca** | Whirlpool | Swap/liquidity instruction |
+| **Drift** | Drift Protocol | Perps/spot DEX actions (`PlaceAndTakePerpOrder`, `Deposit`, etc.) |
+| **Phoenix** | Phoenix DEX | On-chain order book actions (`Swap`, `PlaceLimitOrder`, etc.) |
+| **Sanctum** | Sanctum Router, Sanctum Unstake | LST swaps (`SwapViaStake`, `Unstake`) |
+| **Pump.fun** | Pump.fun, Pump.fun AMM | Token launchpad actions (`Buy`, `Sell`, `Create`) |
 | **Staking** | Native Stake, Marinade, Jito Staking, Jito Tip Router | Stake action with account info |
 | **Lending** | Marginfi, Solend/Save, Kamino Lending, Kamino Vaults | Lending action (deposit, withdraw, borrow, etc.) |
 | **Wormhole** | Core Bridge, Token Bridge, Relayer | Bridge details via WormholeScan API |
@@ -87,9 +92,14 @@ solexplain/
 └── decoders/
     ├── base.py         # BaseDecoder class + find_instructions_from_logs helper
     ├── jupiter.py      # Jupiter aggregator
+    ├── jupiter_products.py  # Jupiter DCA/Limit/Perps
     ├── raydium.py      # Raydium AMM/CLMM/CPMM
     ├── meteora.py      # Meteora DLMM/Pools
     ├── orca.py         # Orca Whirlpool
+    ├── drift.py        # Drift Protocol perps/spot
+    ├── phoenix.py      # Phoenix on-chain order book
+    ├── sanctum.py      # Sanctum LST infrastructure
+    ├── pumpfun.py      # Pump.fun token launchpad
     ├── staking.py      # Native + liquid staking
     ├── lending.py      # Marginfi/Solend/Kamino
     └── wormhole.py     # Wormhole bridge (external API)
@@ -99,9 +109,14 @@ tests/
 ├── test_base.py
 ├── test_cli.py
 ├── test_jupiter.py
+├── test_jupiter_products.py
 ├── test_raydium.py
 ├── test_meteora.py
 ├── test_orca.py
+├── test_drift.py
+├── test_phoenix.py
+├── test_sanctum.py
+├── test_pumpfun.py
 ├── test_staking.py
 └── test_lending.py
 ```

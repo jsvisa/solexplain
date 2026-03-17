@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "logMessages": [
+      "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+      "Program ComputeBudget111111111111111111111111111111 success",
+      "Program 6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P invoke [1]",
+      "Program log: Instruction: Buy",
+      "Program 11111111111111111111111111111111 invoke [2]",
+      "Program 11111111111111111111111111111111 success",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+      "Program log: Instruction: Transfer",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+      "Program 6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P consumed 35000 of 200000 compute units",
+      "Program 6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P success"
+    ],
+    "innerInstructions": [],
+    "err": null,
+    "fee": 5000
+  },
+  "transaction": {
+    "message": {
+      "instructions": [
+        {
+          "accounts": [],
+          "data": "3oR4xS4NQ5T5",
+          "programId": "ComputeBudget111111111111111111111111111111",
+          "stackHeight": 1
+        },
+        {
+          "accounts": [
+            "39azUYFWPz3VHgKCf3VChUwbpURdCHRxjWVowf5jUJjg"
+          ],
+          "data": "WxYzAbCdEfGh",
+          "programId": "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P",
+          "stackHeight": 1
+        }
+      ]
+    }
+  },
+  "blockTime": 1773715000,
+  "slot": 406922000
+}
