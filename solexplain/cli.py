@@ -82,6 +82,29 @@ def format_explanation(r: TxExplanation) -> str:
                 lines.append(
                     f"    Dest tx:     {d.get('destination_tx') or 'pending'}"
                 )
+            elif dtype == "jupiter_swap":
+                lines.append(
+                    f"  Jupiter: {d.get('instruction', 'unknown')} swap"
+                )
+            elif dtype == "raydium":
+                prog = d.get("program", "Raydium")
+                lines.append(f"  {prog}: {d.get('instruction', 'unknown')}")
+            elif dtype == "meteora":
+                prog = d.get("program", "Meteora")
+                lines.append(f"  {prog}: {d.get('instruction', 'unknown')}")
+            elif dtype == "orca":
+                lines.append(
+                    f"  Orca Whirlpool: {d.get('instruction', 'unknown')}"
+                )
+            elif dtype == "stake":
+                protocol = d.get("protocol", "Stake")
+                action = d.get("action", "unknown")
+                stake_acc = d.get("stake_account")
+                suffix = f" (stake account: {_short(stake_acc)})" if stake_acc else ""
+                lines.append(f"  {protocol}: {action}{suffix}")
+            elif dtype == "lending":
+                protocol = d.get("protocol", "Lending")
+                lines.append(f"  {protocol}: {d.get('action', 'unknown')}")
             else:
                 for k, v in d.items():
                     if k != "type":
