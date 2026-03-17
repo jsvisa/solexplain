@@ -35,6 +35,7 @@ def _normalize_address(addr: str) -> str:
 
 class WormholeDecoder(BaseDecoder):
     name = "Wormhole Bridge"
+    output_types = ["wormhole_bridge"]
     program_ids = [
         "worm2ibMTQZMhU6MaEFR53xnxfLq7E6GR3FIsrjiXvq",  # Core Bridge
         "worm2ZoG2kUd4vFXhvjh93UUH596ayRfgQ2MgjNMTth",  # Core Bridge v2
@@ -48,6 +49,17 @@ class WormholeDecoder(BaseDecoder):
             return [self._lookup(tx_hash)]
         except Exception:
             return []
+
+    def format_output(self, d: dict) -> list[str]:
+        return [
+            "  Wormhole Bridge:",
+            f"    Source:      {d.get('source_chain')}",
+            f"    Token:       {d.get('symbol') or 'unknown'}",
+            f"    Amount:      {d.get('amount')}",
+            f"    Dest chain:  {d.get('destination_chain')}",
+            f"    Dest addr:   {d.get('destination_address')}",
+            f"    Dest tx:     {d.get('destination_tx') or 'pending'}",
+        ]
 
     def _lookup(self, tx_hash: str) -> dict:
         url = f"{WORMHOLESCAN_API}?txHash={tx_hash}"

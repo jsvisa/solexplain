@@ -10,6 +10,7 @@ PROGRAM_NAMES = {
 
 class MeteoraDecoder(BaseDecoder):
     name = "Meteora"
+    output_types = ["meteora"]
     program_ids = list(PROGRAM_NAMES.keys())
 
     def decode(self, tx_hash: str, tx_data: dict) -> list[dict]:
@@ -25,3 +26,7 @@ class MeteoraDecoder(BaseDecoder):
                     }
                 )
         return results
+
+    def format_output(self, d: dict) -> list[str]:
+        prog = d.get("program", "Meteora")
+        return [f"  {prog}: {d.get('instruction', 'unknown')}"]

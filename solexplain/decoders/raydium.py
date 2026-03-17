@@ -12,6 +12,7 @@ PROGRAM_NAMES = {
 
 class RaydiumDecoder(BaseDecoder):
     name = "Raydium"
+    output_types = ["raydium"]
     program_ids = list(PROGRAM_NAMES.keys())
 
     def decode(self, tx_hash: str, tx_data: dict) -> list[dict]:
@@ -27,3 +28,7 @@ class RaydiumDecoder(BaseDecoder):
                     }
                 )
         return results
+
+    def format_output(self, d: dict) -> list[str]:
+        prog = d.get("program", "Raydium")
+        return [f"  {prog}: {d.get('instruction', 'unknown')}"]

@@ -34,11 +34,19 @@ def find_instructions_from_logs(tx_data: dict, program_ids: set[str]) -> list[st
     return instructions
 
 
+def short_addr(addr: str, n: int = 8) -> str:
+    """Shorten a base58 address for display."""
+    if len(addr) <= n * 2 + 3:
+        return addr
+    return f"{addr[:n]}...{addr[-n:]}"
+
+
 class BaseDecoder:
     """Subclass this to add protocol-specific enrichment."""
 
     program_ids: list[str] = []
     name: str = ""
+    output_types: list[str] = []
 
     def can_decode(self, tx_programs: set[str]) -> bool:
         """Return True if this decoder is relevant to the transaction."""
@@ -50,3 +58,11 @@ class BaseDecoder:
         Each dict should have at least a 'type' key describing the enrichment.
         """
         return []
+
+    def format_output(self, d: dict) -> list[str]:
+        """Format a single decoder output dict as display lines.
+
+        Override in subclasses for protocol-specific formatting.
+        Default: key-value pairs (skipping 'type').
+        """
+        return [f"  {k}: {v}" for k, v in d.items() if k != "type"]

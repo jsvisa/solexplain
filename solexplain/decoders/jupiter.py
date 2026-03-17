@@ -5,6 +5,7 @@ from .base import BaseDecoder, find_instructions_from_logs
 
 class JupiterDecoder(BaseDecoder):
     name = "Jupiter"
+    output_types = ["jupiter_swap"]
     program_ids = [
         "JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4",  # v6
         "JUP4Fb2cqiRUcaTHdrPC8h2gNsA2ETXiPDD33WcGuJB",  # v4
@@ -15,3 +16,6 @@ class JupiterDecoder(BaseDecoder):
         if not instructions:
             return []
         return [{"type": "jupiter_swap", "instruction": ix} for ix in instructions]
+
+    def format_output(self, d: dict) -> list[str]:
+        return [f"  Jupiter: {d.get('instruction', 'unknown')} swap"]

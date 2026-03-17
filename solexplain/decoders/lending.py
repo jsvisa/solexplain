@@ -12,6 +12,7 @@ LENDING_PROGRAMS = {
 
 class LendingDecoder(BaseDecoder):
     name = "Lending"
+    output_types = ["lending"]
     program_ids = list(LENDING_PROGRAMS.keys())
 
     def decode(self, tx_hash: str, tx_data: dict) -> list[dict]:
@@ -27,3 +28,7 @@ class LendingDecoder(BaseDecoder):
                     }
                 )
         return results
+
+    def format_output(self, d: dict) -> list[str]:
+        protocol = d.get("protocol", "Lending")
+        return [f"  {protocol}: {d.get('action', 'unknown')}"]

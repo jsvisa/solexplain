@@ -1,6 +1,6 @@
 """Staking decoder — native stake + liquid staking (Marinade, Jito)."""
 
-from .base import BaseDecoder, find_instructions_from_logs
+from .base import BaseDecoder, find_instructions_from_logs, short_addr
 
 NATIVE_STAKE_PID = "Stake11111111111111111111111111111111111111"
 
@@ -13,6 +13,7 @@ LIQUID_STAKING_PROGRAMS = {
 
 class StakingDecoder(BaseDecoder):
     name = "Staking"
+    output_types = ["stake"]
     program_ids = [NATIVE_STAKE_PID] + list(LIQUID_STAKING_PROGRAMS.keys())
 
     def decode(self, tx_hash: str, tx_data: dict) -> list[dict]:
@@ -20,6 +21,13 @@ class StakingDecoder(BaseDecoder):
         results.extend(self._decode_native_stake(tx_data))
         results.extend(self._decode_liquid_staking(tx_data))
         return results
+
+    def format_output(self, d: dict) -> list[str]:
+        protocol = d.get("protocol", "Stake")
+        action = d.get("action", "unknown")
+        stake_acc = d.get("stake_account")
+        suffix = f" (stake account: {short_addr(stake_acc)})" if stake_acc else ""
+        return [f"  {protocol}: {action}{suffix}"]
 
     def _decode_native_stake(self, tx_data: dict) -> list[dict]:
         """Parse native stake instructions from jsonParsed data."""

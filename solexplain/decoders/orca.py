@@ -5,6 +5,7 @@ from .base import BaseDecoder, find_instructions_from_logs
 
 class OrcaDecoder(BaseDecoder):
     name = "Orca Whirlpool"
+    output_types = ["orca"]
     program_ids = [
         "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
     ]
@@ -14,3 +15,6 @@ class OrcaDecoder(BaseDecoder):
         if not instructions:
             return []
         return [{"type": "orca", "instruction": ix} for ix in instructions]
+
+    def format_output(self, d: dict) -> list[str]:
+        return [f"  Orca Whirlpool: {d.get('instruction', 'unknown')}"]
