@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "solexplain"
+version = "0.1.0"
+description = "Solana transaction explainer with pluggable protocol decoders"
+requires-python = ">=3.10"
+dependencies = ["base58"]
+
+[project.scripts]
+solexplain = "solexplain.cli:main"
