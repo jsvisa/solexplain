@@ -73,8 +73,11 @@ PROGRAMS: dict[str, tuple[str, str]] = {
     "unpXTU2Ndrc7WWNyEhQWe4udTzSibLPi25SXv2xbCHQ": ("Sanctum Unstake", "staking"),
     # DeFi — Jupiter DCA / Limit / Perps
     "DCA265Vj8a9CEuX1eb1LWRnDT7uK6q1xMipnNyatn23M": ("Jupiter DCA", "dex"),
-    "jup3YeL8QhtSx1e253b2FDvsMNC87fDrgQZivbrndc9": ("Jupiter DCA v1", "dex"),
-    "jupeiUmn818Jg1ekPURTpr4mFo29p46vygyykFJ3wZC": ("Jupiter DCA Operator", "dex"),
+    "jup3YeL8QhtSx1e253b2FDvsMNC87fDrgQZivbrndc9": ("Jupiter Lend", "lending"),
+    "jupeiUmn818Jg1ekPURTpr4mFo29p46vygyykFJ3wZC": (
+        "Jupiter Lend Liquidity",
+        "lending",
+    ),
     "jupoNjAxXgZ4rjzxzPMP4oxduvQsQtZzyknqvzYNrNu": ("Jupiter Limit Order", "dex"),
     "PERPHjGBqRHArX4DySjwM6UJHiR3sWAatqfdBS2qQJu": ("Jupiter Perps", "perps"),
     # DeFi — Phoenix

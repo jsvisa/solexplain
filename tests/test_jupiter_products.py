@@ -69,26 +69,6 @@ class TestJupiterProductsDecoder:
         )
         assert lines == ["  Jupiter Perps: OpenPosition"]
 
-    def test_decode_dca_v1_real_tx(self, load_fixture):
-        """Real tx: 2qvPK698...xLYm — Jupiter DCA v1 Deposit + Operator."""
-        tx = load_fixture("jupiter_dca_v1")
-        decoder = JupiterProductsDecoder()
-        program_ids = {
-            ix.get("programId", "")
-            for ix in tx["transaction"]["message"]["instructions"]
-        }
-        assert decoder.can_decode(program_ids)
-        results = decoder.decode(
-            "2qvPK698g8xB3DX8iB34hJoo4xgaYrBmAgM3qbpedMXVdAWR54PXiJUxUFBfH19H8hgkMsb4nZVjCaakgEcYxLYm",
-            tx,
-        )
-        assert len(results) >= 1
-        types = {r["type"] for r in results}
-        assert "jupiter_dca" in types
-        # Should find Deposit from DCA v1
-        instructions = [r["instruction"] for r in results]
-        assert "Deposit" in instructions
-
     def test_no_match_on_unrelated_tx(self, load_fixture):
         tx = load_fixture("raydium")
         decoder = JupiterProductsDecoder()

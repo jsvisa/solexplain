@@ -7,14 +7,6 @@ JUPITER_PROGRAMS = {
         "jupiter_dca",
         "Jupiter DCA",
     ),
-    "jup3YeL8QhtSx1e253b2FDvsMNC87fDrgQZivbrndc9": (
-        "jupiter_dca",
-        "Jupiter DCA v1",
-    ),
-    "jupeiUmn818Jg1ekPURTpr4mFo29p46vygyykFJ3wZC": (
-        "jupiter_dca",
-        "Jupiter DCA Operator",
-    ),
     "jupoNjAxXgZ4rjzxzPMP4oxduvQsQtZzyknqvzYNrNu": (
         "jupiter_limit",
         "Jupiter Limit",

@@ -50,6 +50,7 @@ Protocol Details:
 |---------|-----------|-------------|
 | **Jupiter** | Jupiter v6, v4 | Swap route instruction (`Route`, `SharedAccountsRoute`, `ExactOutRoute`) |
 | **Jupiter Products** | DCA, Limit Order, Perps | DCA/limit/perps actions (`OpenDca`, `CreateOrder`, `OpenPosition`) |
+| **Jupiter Lend** | Jupiter Lend Earn | Lending vault actions with amount summary (`Deposit`, `Withdraw`) |
 | **Raydium** | CLMM, AMM v4, Router, CPMM | Swap/liquidity instruction with program label |
 | **Meteora** | DLMM, Pools | Swap/liquidity instruction |
 | **Orca** | Whirlpool | Swap/liquidity instruction |
@@ -93,6 +94,7 @@ solexplain/
     ├── base.py         # BaseDecoder class + find_instructions_from_logs helper
     ├── jupiter.py      # Jupiter aggregator
     ├── jupiter_products.py  # Jupiter DCA/Limit/Perps
+    ├── jupiter_lend.py  # Jupiter Lend Earn vaults
     ├── raydium.py      # Raydium AMM/CLMM/CPMM
     ├── meteora.py      # Meteora DLMM/Pools
     ├── orca.py         # Orca Whirlpool
