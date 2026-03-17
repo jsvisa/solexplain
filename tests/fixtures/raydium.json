@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "logMessages": [
+      "Program 11111111111111111111111111111111 invoke [1]",
+      "Program 11111111111111111111111111111111 success",
+      "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+      "Program ComputeBudget111111111111111111111111111111 success",
+      "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+      "Program ComputeBudget111111111111111111111111111111 success",
+      "Program 11111111111111111111111111111111 invoke [1]",
+      "Program 11111111111111111111111111111111 success",
+      "Program BMbP6rg3HDT9Y22s9JCwYtC9vW4RfuojhdqHfsErEGhH invoke [1]",
+      "Program BMbP6rg3HDT9Y22s9JCwYtC9vW4RfuojhdqHfsErEGhH consumed 206 of 71338 compute units",
+      "Program BMbP6rg3HDT9Y22s9JCwYtC9vW4RfuojhdqHfsErEGhH success",
+      "Program CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK invoke [1]",
+      "Program log: Instruction: Swap",
+      "Program log: AnchorError thrown in programs/amm/src/instructions/swap.rs:144. Error Code: SqrtPriceLimitOverflow. Error Number: 6013. Error Message: Square root price limit overflow.",
+      "Program CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK consumed 12843 of 71132 compute units",
+      "Program CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK failed: custom program error: 0x177d"
+    ],
+    "innerInstructions": [],
+    "err": {
+      "InstructionError": [
+        5,
+        {
+          "Custom": 6013
+        }
+      ]
+    },
+    "fee": 14518
+  },
+  "transaction": {
+    "message": {
+      "instructions": [
+        {
+          "parsed": {
+            "info": {
+              "nonceAccount": "BAeSBA2pgodG5k2w6E9c5Pke685Zt1Hma3o9iwp4siHu",
+              "nonceAuthority": "Bcxv7jCiVCfdzgZghGQpZBDDNGxRBLgDthmu469jHrCX",
+              "recentBlockhashesSysvar": "SysvarRecentB1ockHashes11111111111111111111"
+            },
+            "type": "advanceNonce"
+          },
+          "program": "system",
+          "programId": "11111111111111111111111111111111",
+          "stackHeight": 1
+        },
+        {
+          "accounts": [],
+          "data": "3oR4xS4NQ5T5",
+          "programId": "ComputeBudget111111111111111111111111111111",
+          "stackHeight": 1
+        },
+        {
+          "accounts": [],
+          "data": "E9B2xw",
+          "programId": "ComputeBudget111111111111111111111111111111",
+          "stackHeight": 1
+        },
+        {
+          "parsed": {
+            "info": {
+              "destination": "4vieeGHPYPG2MmyPRcYjdiDmmhN3ww7hsFNap8pVN3Ey",
+              "lamports": 5000,
+              "source": "Bcxv7jCiVCfdzgZghGQpZBDDNGxRBLgDthmu469jHrCX"
+            },
+            "type": "transfer"
+          },
+          "program": "system",
+          "programId": "11111111111111111111111111111111",
+          "stackHeight": 1
+        },
+        {
+          "accounts": [],
+          "data": "163G5D8G2TgB",
+          "programId": "BMbP6rg3HDT9Y22s9JCwYtC9vW4RfuojhdqHfsErEGhH",
+          "stackHeight": 1
+        },
+        {
+          "accounts": [
+            "Bcxv7jCiVCfdzgZghGQpZBDDNGxRBLgDthmu469jHrCX",
+            "9iFER3bpjf1PTTCQCfTRu17EJgvsxo9pVyA9QWwEuX4x",
+            "3nMFwZXwY1s1M5s8vYAHqd4wGs4iSxXE4LRoUMMYqEgF",
+            "DXsrGPzKLqN78Bmai8D5F6rdQRAYpMb1iRggxz6EE8CU",
+            "8KV7BNJSeAppE6R7XmvWev2qHceQfRPwFsDevZ5CtRX9",
+            "2n6fxuD6PA5NYgEnXXYMh2iWD1JBJ1LGf76kFJAayZmX",
+            "AbcuyoPeYnddzFoFQudsiFka8qd6tTwvLgxwtpTKTpKC",
+            "Cqb16WaM7dDDP8koxYASDJLWgan4STDB1R3LiSH8r3GR",
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "HuigvPoXF6R8iejoHcbkGBrTQnNXufUwmXfPeAQiBzcD",
+            "CVVksySxwt3yfohTpevbpN7oxBuhFYAZkdK1b2nv4H5e",
+            "6DRvDe7CJ8UpRvohCza6fMinxyMo8UumwWFCKbnfiZus"
+          ],
+          "data": "wZRp7wZ3czstEB6iucqNN1pJTbD7aaJqHLwsmk6Sk1gX7DBL54pu4Hua",
+          "programId": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+          "stackHeight": 1
+        }
+      ]
+    }
+  },
+  "blockTime": 1773714268,
+  "slot": 406921244
+}

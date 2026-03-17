@@ -9,5 +9,17 @@ description = "Solana transaction explainer with pluggable protocol decoders"
 requires-python = ">=3.10"
 dependencies = ["base58"]
 
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "black", "isort", "flake8"]
+
 [project.scripts]
 solexplain = "solexplain.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.black]
+line-length = 88
+
+[tool.isort]
+profile = "black"
