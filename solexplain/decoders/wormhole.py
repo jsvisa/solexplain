@@ -76,8 +76,6 @@ class WormholeDecoder(BaseDecoder):
             "destination_chain": CHAIN_NAMES.get(
                 target_chain.get("chainId"), target_chain.get("chainId")
             ),
-            "destination_address": _normalize_address(
-                payload.get("toAddress", "")
-            ),
+            "destination_address": _normalize_address(payload.get("toAddress", "")),
             "destination_tx": target_chain.get("transaction", {}).get("txHash"),
         }

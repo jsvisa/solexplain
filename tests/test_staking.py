@@ -38,7 +38,9 @@ class TestStakingDecoderNative:
         assert delegate["type"] == "stake"
         assert delegate["protocol"] == "Native Stake"
         assert delegate["action"] == "delegate"
-        assert delegate["stake_account"] == "7BAQFMppAZPEKgCK2x62QJvfriXc1g8Yza11ErffRRwB"
+        assert (
+            delegate["stake_account"] == "7BAQFMppAZPEKgCK2x62QJvfriXc1g8Yza11ErffRRwB"
+        )
 
 
 class TestStakingDecoderMarinade:

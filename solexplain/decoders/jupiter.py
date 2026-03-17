@@ -14,6 +14,4 @@ class JupiterDecoder(BaseDecoder):
         instructions = find_instructions_from_logs(tx_data, set(self.program_ids))
         if not instructions:
             return []
-        return [
-            {"type": "jupiter_swap", "instruction": ix} for ix in instructions
-        ]
+        return [{"type": "jupiter_swap", "instruction": ix} for ix in instructions]

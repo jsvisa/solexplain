@@ -13,6 +13,61 @@ def _short(addr: str, n: int = 8) -> str:
     return f"{addr[:n]}...{addr[-n:]}"
 
 
+def _fmt_wormhole(d: dict) -> list[str]:
+    return [
+        "  Wormhole Bridge:",
+        f"    Source:      {d.get('source_chain')}",
+        f"    Token:       {d.get('symbol') or 'unknown'}",
+        f"    Amount:      {d.get('amount')}",
+        f"    Dest chain:  {d.get('destination_chain')}",
+        f"    Dest addr:   {d.get('destination_address')}",
+        f"    Dest tx:     {d.get('destination_tx') or 'pending'}",
+    ]
+
+
+def _fmt_jupiter(d: dict) -> list[str]:
+    return [f"  Jupiter: {d.get('instruction', 'unknown')} swap"]
+
+
+def _fmt_dex(d: dict, fallback: str) -> list[str]:
+    prog = d.get("program", fallback)
+    return [f"  {prog}: {d.get('instruction', 'unknown')}"]
+
+
+def _fmt_stake(d: dict) -> list[str]:
+    protocol = d.get("protocol", "Stake")
+    action = d.get("action", "unknown")
+    stake_acc = d.get("stake_account")
+    suffix = f" (stake account: {_short(stake_acc)})" if stake_acc else ""
+    return [f"  {protocol}: {action}{suffix}"]
+
+
+def _fmt_lending(d: dict) -> list[str]:
+    protocol = d.get("protocol", "Lending")
+    return [f"  {protocol}: {d.get('action', 'unknown')}"]
+
+
+def _fmt_fallback(d: dict) -> list[str]:
+    return [f"  {k}: {v}" for k, v in d.items() if k != "type"]
+
+
+_FORMATTERS = {
+    "wormhole_bridge": _fmt_wormhole,
+    "jupiter_swap": _fmt_jupiter,
+    "raydium": lambda d: _fmt_dex(d, "Raydium"),
+    "meteora": lambda d: _fmt_dex(d, "Meteora"),
+    "orca": lambda d: _fmt_dex(d, "Orca Whirlpool"),
+    "stake": _fmt_stake,
+    "lending": _fmt_lending,
+}
+
+
+def _format_decoder_output(d: dict) -> list[str]:
+    dtype = d.get("type", "unknown")
+    formatter = _FORMATTERS.get(dtype, _fmt_fallback)
+    return formatter(d)
+
+
 def format_explanation(r: TxExplanation) -> str:
     lines = []
     lines.append(f"Transaction: {r.tx_hash}")
@@ -71,44 +126,7 @@ def format_explanation(r: TxExplanation) -> str:
     if r.decoder_outputs:
         lines.append("Protocol Details:")
         for d in r.decoder_outputs:
-            dtype = d.get("type", "unknown")
-            if dtype == "wormhole_bridge":
-                lines.append(f"  Wormhole Bridge:")
-                lines.append(f"    Source:      {d.get('source_chain')}")
-                lines.append(f"    Token:       {d.get('symbol') or 'unknown'}")
-                lines.append(f"    Amount:      {d.get('amount')}")
-                lines.append(f"    Dest chain:  {d.get('destination_chain')}")
-                lines.append(f"    Dest addr:   {d.get('destination_address')}")
-                lines.append(
-                    f"    Dest tx:     {d.get('destination_tx') or 'pending'}"
-                )
-            elif dtype == "jupiter_swap":
-                lines.append(
-                    f"  Jupiter: {d.get('instruction', 'unknown')} swap"
-                )
-            elif dtype == "raydium":
-                prog = d.get("program", "Raydium")
-                lines.append(f"  {prog}: {d.get('instruction', 'unknown')}")
-            elif dtype == "meteora":
-                prog = d.get("program", "Meteora")
-                lines.append(f"  {prog}: {d.get('instruction', 'unknown')}")
-            elif dtype == "orca":
-                lines.append(
-                    f"  Orca Whirlpool: {d.get('instruction', 'unknown')}"
-                )
-            elif dtype == "stake":
-                protocol = d.get("protocol", "Stake")
-                action = d.get("action", "unknown")
-                stake_acc = d.get("stake_account")
-                suffix = f" (stake account: {_short(stake_acc)})" if stake_acc else ""
-                lines.append(f"  {protocol}: {action}{suffix}")
-            elif dtype == "lending":
-                protocol = d.get("protocol", "Lending")
-                lines.append(f"  {protocol}: {d.get('action', 'unknown')}")
-            else:
-                for k, v in d.items():
-                    if k != "type":
-                        lines.append(f"  {k}: {v}")
+            lines.extend(_format_decoder_output(d))
         lines.append("")
 
     return "\n".join(lines)

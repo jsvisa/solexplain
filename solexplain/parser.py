@@ -164,7 +164,10 @@ def parse_sol_transfers(tx: dict) -> list[dict]:
         parsed = ix.get("parsed")
         if not isinstance(parsed, dict):
             return
-        if parsed.get("type") == "transfer" and ix.get("programId") == "11111111111111111111111111111111":
+        if (
+            parsed.get("type") == "transfer"
+            and ix.get("programId") == "11111111111111111111111111111111"
+        ):
             info = parsed.get("info", {})
             transfers.append(
                 {

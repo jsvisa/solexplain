@@ -71,7 +71,10 @@ PROGRAMS: dict[str, tuple[str, str]] = {
     "SW1TCH7qEPTdLsDHRgPuMQjbQxKdH2aBStViMFnt64f": ("Switchboard v2", "oracle"),
     # Governance
     "GovER5Lthms3bLBqWub97yVrMmEogzX7xNjdXpPPCVZw": ("SPL Governance", "governance"),
-    "voTpe3tHQ7AjQHMapgSue2HJFAh2cGsdokqN3XqmVSj": ("Voter Stake Registry", "governance"),
+    "voTpe3tHQ7AjQHMapgSue2HJFAh2cGsdokqN3XqmVSj": (
+        "Voter Stake Registry",
+        "governance",
+    ),
 }
 
 
