@@ -7,19 +7,21 @@ description: Use when explaining Solana transactions in human-readable form, dec
 
 CLI tool that fetches a Solana transaction and explains it in human-readable form — programs involved, SOL/token transfers, and protocol-specific actions.
 
-## Install
+## How to Run
+
+Always use the CLI via Bash — never use a browser or Playwright.
+
+Default RPC is `https://api.mainnet-beta.solana.com`. Override with `--rpc` or the `SOLANA_RPC` environment variable:
 
 ```bash
-pip install solexplain
-# or from source
-pip install -e .
-```
-
-## Usage
-
-```bash
+# default RPC
 solexplain <tx_signature>
+
+# custom RPC via flag
 solexplain <tx_signature> --rpc https://your-rpc-url.com
+
+# custom RPC via env
+SOLANA_RPC=https://your-rpc-url.com solexplain <tx_signature>
 ```
 
 **Output includes:**
@@ -39,6 +41,14 @@ solexplain <tx_signature> --rpc https://your-rpc-url.com
 | Launchpad | Pump.fun, Pump.fun AMM |
 | Bridge | Wormhole (Core, Token Bridge, Relayer) |
 | Other | Sanctum Router/Unstake, Drift |
+
+## Install
+
+```bash
+pip install solexplain
+# or from source
+pip install -e .
+```
 
 ## Adding a New Decoder
 
