@@ -1,0 +1,6 @@
+{
+  "name": "solexplain",
+  "version": "0.2.1",
+  "type": "module",
+  "description": "Claude Code skill for solexplain — Solana transaction explainer"
+}
